@@ -7,9 +7,199 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>My Portfolio</title>
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+    ></script>
+    <script>
+      $(function () {
+        // #で始まるアンカーをクリックした場合に処理
+        $("a[href^=#]").click(function () {
+          // スクロールの速度
+          var speed = 400; // ミリ秒
+          // アンカーの値取得
+          var href = $(this).attr("href");
+          // 移動先を取得
+          var target = $(href == "#" || href == "" ? "html" : href);
+          // 移動先を数値で取得
+          var position = target.offset().top;
+          // スムーススクロール
+          $("body,html").animate({ scrollTop: position }, speed, "swing");
+          return false;
+        });
+      });
+    </script>
+
+    <style>
+      div {
+        width: auto;
+        height: 500px;
+      }
+      a.button {
+        font-size: 12px;
+      }
+    </style>
   </head>
   <body>
-    <h1>おかき～岡響平～</h1>
-    <script src="main.js"></script>
+    <header class="header-nav">
+      <nav><a href="#sec1">Home</a></nav>
+      <nav><a href="#sec2">About me</a></nav>
+      <nav><a href="#sec3">Hobby</a></nav>
+      <nav>
+        <a href="https://twitter.com/3HB2sdwqMGC1VrU"
+          ><image src="twitterlogo.png" width="45" height="45"></image
+        ></a>
+      </nav>
+      <nav>
+        <a href="https://www.instagram.com/okaky_m_/"
+          ><image src="instagramlogo.png" width="50" height="50"></image
+        ></a>
+      </nav>
+    </header>
+    <div class="first-block" id="sec1">
+      <div class="title-container">
+        <br /><br />
+        <br />
+        <h1>岡 響平</h1>
+        <h3>~ Geeksalon WebExpertコース18期生~</h3>
+      </div>
+    </div>
+    <div class="second-block" id="sec2">
+      <p class="info-title">About me</p>
+      <div class="main-content">
+        <p class="info-text">
+          <b>所属サークル：<br />バスケットボール</b><br />
+          <span class="font-small">
+            小学5年からバスケをしてます。<br />
+            高校ではキャプテンやりました。<br />
+            <br /><br />
+          </span>
+          <image src="baske.jpg" width="300" height="150"></image>
+        </p>
+        <p class="info-text">
+          <b>神戸大学 国際人間科学部<br />発達コミュニティ学科</b><br />
+          <span class="font-small">
+            専攻は心理学、対人関係や認知について。<br />
+            心は読みません。<br />
+            文系を誘い込んで数値で痛い目に合わせる統計学です。<br /><br />
+          </span>
+          <image src="toukei.jpg" width="300" height="150"></image>
+        </p>
+        <p class="info-text">
+          <b>趣味：ピアノ</b><br />
+          <span class="font-small">
+            小4までピアノを習っていて、大学に入ってコロナ<br />
+            の影響で外に遊びに出づらくなり、一回生の頃に<br />
+            再開。なんとなく続ける。
+          </span>
+          <image src="piano.jpg" width="300" height="150"></image>
+        </p>
+      </div>
+    </div>
+    <div class="third-block" id="sec3">
+      <p class="info-title">Hobby</p>
+      <p>
+        昨年末から平成の20作品令和4作品合わせた計24作品を
+        制覇すべくちまちまと見ている。<br />
+        有名俳優のデビュー当時などが見られ、最近のドラマとの役の違いや
+        演技力の成長を見るのが割と好き。
+      </p>
+      <b><h4>画像クリックで次へ</h4></b>
+      <h3 id="nendai">2000～クウガ～</h3>
+      <h4 id="haiyuu">主演：オダギリジョー</h4>
+      <br />
+      <img
+        id="rider"
+        onclick="slideshow()"
+        src="kuuga.jpeg"
+        width="250"
+        height="250"
+      />
+      <script>
+        var pics_src = new Array(
+          "kuuga.jpeg",
+          "agito.jpeg",
+          "ryuuki.jpeg",
+          "faiz.jpeg",
+          "blade.jpeg",
+          "hibiki.jpeg",
+          "kabuto.jpeg",
+          "deno.jpeg",
+          "kiba.jpeg",
+          "decade.jpeg",
+          "W.jpeg",
+          "os.jpeg",
+          "fourze.jpeg",
+          "wizard.jpeg",
+          "gaim.jpeg",
+          "drive.jpeg",
+          "ghost.jpeg",
+          "exaid.jpeg",
+          "build.jpeg",
+          "zio.jpeg"
+        );
+
+        var texts_h3 = new Array(
+          "2000～クウガ～",
+          "2001～アギト～",
+          "2002～龍騎～",
+          "2003～ファイズ～",
+          "2004～ブレイド～",
+          "2005～響鬼～",
+          "2006～カブト～",
+          "2007～電王～",
+          "2008～キバ～",
+          "2009～ディケイド～",
+          "2010～ダブル～",
+          "2011～オーズ～",
+          "2012～フォーゼ～",
+          "2013～ウィザード～",
+          "2014～鎧武～",
+          "2015～ドライブ～",
+          "2016～ゴースト～",
+          "2017～エグゼイド～",
+          "2018～ビルド～",
+          "2019～ジオウ～"
+        );
+
+        var texts_h4 = new Array(
+          "主演：オダギリジョーなど",
+          "主演：賀集利樹、要潤など",
+          "主演：須賀貴匡など",
+          "主演：半田健人など",
+          "主演：椿孝之、天野浩成など",
+          "主演：細川茂樹など",
+          "主演：水嶋ヒロなど",
+          "主演：佐藤健など",
+          "主演：瀬戸康史など",
+          "主演：井上正大など",
+          "主演：菅田将暉、桐山漣など",
+          "主演：渡部秀など",
+          "主演：福士蒼汰、吉沢亮など",
+          "主演：白石隼也など",
+          "主演：佐野岳、高杉真宙など",
+          "主演：竹内涼真、内田理央など",
+          "主演：西銘俊、磯村勇斗など",
+          "主演：飯島寛騎、小野塚勇人など",
+          "主演：犬飼貴丈、赤楚衛二など",
+          "主演：奥野壮、押田岳など"
+        );
+        var num = 0;
+
+        function slideshow() {
+          if (num == 19) {
+            num = 0;
+          } else {
+            num++;
+          }
+          document.getElementById("rider").src = pics_src[num];
+          document.getElementById("nendai").textContent = texts_h3[num];
+          document.getElementById("haiyuu").textContent = texts_h4[num];
+        }
+      </script>
+    </div>
   </body>
+  <footer>
+    <h5>&copy; 2023 okaki's portfolio</h5>
+  </footer>
 </html>
